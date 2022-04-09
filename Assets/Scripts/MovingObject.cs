@@ -123,7 +123,30 @@ public class MovingObject : MonoBehaviour
         }
     }
 
+    IEnumerator MoveStep(MoveDirectionEnum moveDirection) {
+        float dist = (float)moveDistance;
+        Vector3 direction = GetMovementDirection(moveDirection);
+        movingToTarget = (direction * moveDistance) + transform.position;
+        while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
+        {
+            Vector3 stepDistance = Vector3.Scale(Vector3.Scale(direction, new Vector3(dist, dist, dist)), new Vector3(0.04f, 1f, 0.04f));
+            Vector3 newPos = new Vector3(transform.position.x + stepDistance.x, transform.position.y, transform.position.z + stepDistance.z);
+            transform.position = newPos;
+            yield return new WaitForSeconds(0.008f);
+        }
+        RoundPlayerPosition();
+        yield break;
+    }
+
     public void MoveInput(MoveDirectionEnum moveDirection)
+    {
+        StartCoroutine(MoveStep(moveDirection));
+
+        //GameManager.Instance.TellGMMoveStatus(gameObject.name, true);
+        
+    }
+
+    public void MoveInputt(MoveDirectionEnum moveDirection)
     {
         Vector3 direction = GetMovementDirection(moveDirection);
         if (staticBlockInFront(moveDirection))
@@ -165,7 +188,7 @@ public class MovingObject : MonoBehaviour
                 }
             }
 
-            
+
 
             movingToTarget = (direction * moveDistance) + transform.position;
             MovingDirection = direction;
