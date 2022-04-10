@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 7383785081142987426}
   - component: {fileID: 7737645181706197422}
   - component: {fileID: 2344927647300426668}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: WinningSphere
   m_Icon: {fileID: 0}

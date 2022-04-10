@@ -13,6 +13,15 @@ public class BreakingBlockIce : Block
         timesBeforeBreaking = 1;
     }
 
+    public override void WasStoodOn()
+    {
+        DecrementTimesBeforeBreaking();
+        if (CheckIfBreak())
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public override void DecrementTimesBeforeBreaking()
     {
         timesBeforeBreaking--;

@@ -8,124 +8,69 @@ public class MovingObject : MonoBehaviour
     public Vector3 MovingDirection;
     public int moveSpeedAll = 5;
     public int fallSpeed = 25;
-    public bool moving;
-    public bool isFalling;
     public Vector3 StartPositionPlayer;
     [SerializeField] LayerMask blockLayerMask;
     [SerializeField] LayerMask movingBlockLayerMask;
     [SerializeField] LayerMask staticBlockLayerMask;
     [SerializeField] LayerMask coinLayerMask;
-    private CharacterController characterController;
+    [SerializeField] LayerMask winningSphereMask;
     private Vector3 movingToTarget;
     private Vector3 fallingToTarget;
 
-    protected virtual void Start()
+    public void MoveInput(MoveDirectionEnum moveDirection)
     {
-        characterController = this.GetComponent<CharacterController>();
-        enabled = false;
-    }
-    void Update()
-    {
-        if (isFalling)
-        {
-            SimpleFall();
-        }
-        if (!moving)
+        Vector3 direction = GetMovementDirection(moveDirection);
+
+        if (staticBlockInFront(direction))
         {
             return;
         }
-        else
+        if (chainCheck(direction) > 2)
         {
-            MoveTowardsTarget(movingToTarget);
+            return;
         }
-    }
-
-    void SimpleFall()
-    {
-        characterController.Move(Vector3.down * Time.deltaTime * fallSpeed);
-    }
-
-    void MoveTowardsTarget(Vector3 target)
-    {
-        Vector3 offset = target - transform.position;
-        if (offset.magnitude > .1f)
+        MovingObject movingObject = TryFindMovingObjectInFront(direction);
+        if (movingObject != null)
         {
-            offset = offset.normalized;
-            characterController.Move(offset * Time.deltaTime * moveSpeedAll);
+            movingObject.MoveInput(moveDirection);
+            return;
         }
-        else
+
+        Coin coin = TryGetCoin(direction);
+        if (coin != null)
         {
-            RoundPlayerPosition();
-            MoveDirectionEnum directionEnum = GetMovementDirectionEnum(MovingDirection);
-            Block block = TryFindBlockObjectStandingOn();
-            if (block != null)
+            if (this.gameObject.tag == "Player")
             {
-                if (staticBlockInFront(directionEnum))
-                {
-                    moving = false;
-                    GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
-                    enabled = false;
-                    return;
-                }
-                if (block.blockType == BlockType.Ice)
-                {
-                    Coin coin = TryGetCoin(directionEnum);
-                    if (coin != null)
-                    {
-                        if (this.gameObject.tag == "Player")
-                        {
-                            coin.CollectCoin();
-                        }
-                        else if (this.gameObject.tag == "MovingBlock")
-                        {
-                            moving = false;
-                            GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
-                            enabled = false;
-                            return;
-                        }
-                    }
-                    MovingObject movingObjectFront = TryFindMovingObjectInFront(directionEnum);
-                    if (movingObjectFront != null)
-                    {
-                        if (chainCheck(directionEnum) >= 2)
-                        {
-                            moving = false;
-                            GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
-                            enabled = false;
-                            return;
-                        }
-                        movingObjectFront.MoveInput(directionEnum);
-                        moving = false;
-                        GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
-                        enabled = false;
-                        return;
-                    }
-                    else
-                    {
-                        //BreakingBlockIce
-                        if (block.breakingBlock)
-                        {
-                            block.DecrementTimesBeforeBreaking();
-                            if (block.CheckIfBreak())
-                            {
-                                Destroy(block.gameObject);
-                            }
-                        }
-                        //Sliding, update target position
-                        movingToTarget = MovingDirection * moveDistance + transform.position;
-                        return;
-                    }
-                }
+                coin.CollectCoin();
             }
-            moving = false;
-            GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
-            DeathCheck();
+            else if (this.gameObject.tag == "MovingBlock")
+            {
+                return;
+            }
+        }
+
+        if(CheckIfWinningSphere(direction)) {
+            GameManager.Instance.LevelCleared();
+        }
+
+        Block blockBelow = TryFindBlockObjectStandingOn();
+        if (blockBelow != null)
+        {
+            if (blockBelow.breakingBlock)
+            {
+                blockBelow.WasStoodOn();
+            }
+
+            movingToTarget = (direction * moveDistance) + transform.position;
+            MovingDirection = direction;
+            GameManager.Instance.TellGMMoveStatus(gameObject.name, true);
+            StartCoroutine(MoveStep(direction));
         }
     }
 
-    IEnumerator MoveStep(MoveDirectionEnum moveDirection) {
+    IEnumerator MoveStep(Vector3 direction)
+    {
         float dist = (float)moveDistance;
-        Vector3 direction = GetMovementDirection(moveDirection);
         movingToTarget = (direction * moveDistance) + transform.position;
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
@@ -135,78 +80,42 @@ public class MovingObject : MonoBehaviour
             yield return new WaitForSeconds(0.008f);
         }
         RoundPlayerPosition();
+        GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
+        AfterMoveInput(direction);
         yield break;
     }
 
-    public void MoveInput(MoveDirectionEnum moveDirection)
+    public IEnumerator MoveFall()
     {
-        StartCoroutine(MoveStep(moveDirection));
-
-        //GameManager.Instance.TellGMMoveStatus(gameObject.name, true);
-        
+        Vector3 direction = new Vector3(0, -1f, 0);
+        movingToTarget = new Vector3(transform.position.x, transform.position.y - 20f, transform.position.z);
+        while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
+        {
+            Vector3 stepDistance = new Vector3(0, -0.1f, 0);
+            Vector3 newPos = new Vector3(transform.position.x, transform.position.y + stepDistance.y, transform.position.z);
+            transform.position = newPos;
+            yield return new WaitForSeconds(0.005f);
+        }
+        yield break;
     }
 
-    public void MoveInputt(MoveDirectionEnum moveDirection)
+    void AfterMoveInput(Vector3 direction)
     {
-        Vector3 direction = GetMovementDirection(moveDirection);
-        if (staticBlockInFront(moveDirection))
+        if (DeathCheck())
         {
             return;
         }
-        if (chainCheck(moveDirection) >= 2)
+        Block block = TryFindBlockObjectStandingOn();
+        if (block.blockType == BlockType.Ice)
         {
-            return;
-        }
-        MovingObject movingObject = TryFindMovingObjectInFront(moveDirection);
-        if (movingObject != null)
-        {
-            movingObject.MoveInput(moveDirection);
-            return;
-        }
-        Block blockBelow = TryFindBlockObjectStandingOn();
-        if (blockBelow != null)
-        {
-            if (blockBelow.breakingBlock)
-            {
-                blockBelow.DecrementTimesBeforeBreaking();
-                if (blockBelow.CheckIfBreak())
-                {
-                    Destroy(blockBelow.gameObject);
-                }
-            }
-
-            Coin coin = TryGetCoin(moveDirection);
-            if (coin != null)
-            {
-                if (this.gameObject.tag == "Player")
-                {
-                    coin.CollectCoin();
-                }
-                else if (this.gameObject.tag == "MovingBlock")
-                {
-                    return;
-                }
-            }
-
-
-
-            movingToTarget = (direction * moveDistance) + transform.position;
-            MovingDirection = direction;
-            moving = true;
-            GameManager.Instance.TellGMMoveStatus(gameObject.name, true);
-            enabled = true;
-        }
-        else
-        {
-            DeathCheck();
+            MoveInput(GetMovementDirectionEnum(direction));
         }
     }
 
-    Coin TryGetCoin(MoveDirectionEnum moveDirectionEnum)
+    Coin TryGetCoin(Vector3 moveDirectionNormalize)
     {
         {
             RaycastHit hit;
-            Vector3 moveDirectionNormalize = GetMovementDirection(moveDirectionEnum);
             if (Physics.Raycast(transform.position, transform.TransformDirection(moveDirectionNormalize), out hit, 2.5f, coinLayerMask))
             {
                 GameObject coinObject = hit.collider.gameObject;
@@ -217,13 +126,22 @@ public class MovingObject : MonoBehaviour
             }
             return null;
         }
-
     }
 
-    int chainCheck(MoveDirectionEnum moveDirectionEnum)
+    bool CheckIfWinningSphere(Vector3 moveDirectionNormalize) {
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(moveDirectionNormalize), out hit, 2.5f, winningSphereMask))
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+
+    int chainCheck(Vector3 moveDirectionNormalize)
     {
         int chain = 0;
-        Vector3 moveDirectionNormalize = GetMovementDirection(moveDirectionEnum);
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 4f, movingBlockLayerMask);
         List<GameObject> seenGameObjects = new List<GameObject>();
         foreach (RaycastHit hit in hits)
@@ -252,9 +170,8 @@ public class MovingObject : MonoBehaviour
         return chain;
     }
 
-    bool staticBlockInFront(MoveDirectionEnum moveDirectionEnum)
+    bool staticBlockInFront(Vector3 moveDirectionNormalize)
     {
-        Vector3 moveDirectionNormalize = GetMovementDirection(moveDirectionEnum);
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 1.5f, staticBlockLayerMask);
 
         foreach (RaycastHit hit in hits)
@@ -267,9 +184,8 @@ public class MovingObject : MonoBehaviour
         return false;
     }
 
-    MovingObject TryFindMovingObjectInFront(MoveDirectionEnum moveDirectionEnum)
+    MovingObject TryFindMovingObjectInFront(Vector3 moveDirectionNormalize)
     {
-        Vector3 moveDirectionNormalize = GetMovementDirection(moveDirectionEnum);
         RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 1.5f, movingBlockLayerMask);
 
         foreach (RaycastHit hit in hits)
@@ -299,14 +215,15 @@ public class MovingObject : MonoBehaviour
         }
         return null;
     }
-    void DeathCheck()
+    bool DeathCheck()
     {
         Block block = TryFindBlockObjectStandingOn();
         if (block == null)
         {
-            isFalling = true;
             Fall();
+            return true;
         }
+        return false;
     }
 
     public virtual void Fall()
@@ -360,6 +277,22 @@ public class MovingObject : MonoBehaviour
         float y = transform.position.y;
         float z = Mathf.Round(transform.position.z);
         transform.position = new Vector3(x, y, z);
+    }
+
+    public virtual IEnumerator FadeOutMaterial()
+    {
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        float elapsedTime = 0f;
+        Color initialColor = renderer.material.color;
+        Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
+
+        while (elapsedTime < 2f)
+        {
+            elapsedTime += 0.01f;
+            renderer.material.color = Color.Lerp(initialColor, targetColor, elapsedTime / 2f);
+            yield return new WaitForSeconds(0.005f);
+        }
+        yield return null;
     }
 }
 public enum MoveDirectionEnum

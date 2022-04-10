@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class MovingBlock : MovingObject
 {
-    public MovingBlock() {
-        moveSpeedAll = 15;
-    }
-
-    protected override void Start()
+    public MovingBlock()
     {
-        base.Start();
+        moveSpeedAll = 15;
     }
 
     public override void Fall()
     {
+        StartCoroutine(MoveFall());
+        StartCoroutine(FadeOutMaterial());
         Destroy(gameObject, 2);
     }
 }

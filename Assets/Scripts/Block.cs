@@ -10,7 +10,8 @@ public class Block : MonoBehaviour
     public BlockType blockType = BlockType.Regular;
     public bool breakingBlock = false;
 
-    
+
+    public virtual void WasStoodOn(){}    
 
     public virtual void DecrementTimesBeforeBreaking(){}
 
