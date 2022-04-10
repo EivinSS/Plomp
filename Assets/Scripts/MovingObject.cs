@@ -49,8 +49,17 @@ public class MovingObject : MonoBehaviour
             }
         }
 
-        if(CheckIfWinningSphere(direction)) {
-            GameManager.Instance.LevelCleared();
+
+        if (CheckIfWinningSphere(direction))
+        {
+            if (this.gameObject.tag == "Player")
+            {
+                GameManager.Instance.LevelCleared();
+            }
+            else if (this.gameObject.tag == "MovingBlock")
+            {
+                return;
+            }
         }
 
         Block blockBelow = TryFindBlockObjectStandingOn();
@@ -72,9 +81,9 @@ public class MovingObject : MonoBehaviour
     {
         float dist = (float)moveDistance;
         movingToTarget = (direction * moveDistance) + transform.position;
+        Vector3 stepDistance = Vector3.Scale(Vector3.Scale(direction, new Vector3(dist, dist, dist)), new Vector3(0.04f, 1f, 0.04f));
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
-            Vector3 stepDistance = Vector3.Scale(Vector3.Scale(direction, new Vector3(dist, dist, dist)), new Vector3(0.04f, 1f, 0.04f));
             Vector3 newPos = new Vector3(transform.position.x + stepDistance.x, transform.position.y, transform.position.z + stepDistance.z);
             transform.position = newPos;
             yield return new WaitForSeconds(0.008f);
@@ -89,9 +98,9 @@ public class MovingObject : MonoBehaviour
     {
         Vector3 direction = new Vector3(0, -1f, 0);
         movingToTarget = new Vector3(transform.position.x, transform.position.y - 20f, transform.position.z);
+        Vector3 stepDistance = new Vector3(0, -0.1f, 0);
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
-            Vector3 stepDistance = new Vector3(0, -0.1f, 0);
             Vector3 newPos = new Vector3(transform.position.x, transform.position.y + stepDistance.y, transform.position.z);
             transform.position = newPos;
             yield return new WaitForSeconds(0.005f);
@@ -128,7 +137,8 @@ public class MovingObject : MonoBehaviour
         }
     }
 
-    bool CheckIfWinningSphere(Vector3 moveDirectionNormalize) {
+    bool CheckIfWinningSphere(Vector3 moveDirectionNormalize)
+    {
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(moveDirectionNormalize), out hit, 2.5f, winningSphereMask))

@@ -6,6 +6,7 @@ public class LevelObject : MonoBehaviour
 {
     public int numberOfCoins;
     public int levelNumber;
+    public int numberOfPanels;
 
     public bool isLastLevel;
 

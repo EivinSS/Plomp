@@ -16,8 +16,6 @@ MonoBehaviour:
   MovingDirection: {x: 0, y: 0, z: 0}
   moveSpeedAll: 10
   fallSpeed: 25
-  moving: 0
-  isFalling: 0
   StartPositionPlayer: {x: 0, y: 0, z: 0}
   blockLayerMask:
     serializedVersion: 2
@@ -31,6 +29,9 @@ MonoBehaviour:
   coinLayerMask:
     serializedVersion: 2
     m_Bits: 1024
+  winningSphereMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1001 &6838915852010989109
 PrefabInstance:
   m_ObjectHideFlags: 0

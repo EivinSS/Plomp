@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(canvas.fadeToBright(fadeDuration));
     }
 
-    public void TellGMMoveStatus(string name, bool isMoving)
+    public void TellGMMoveStatus(string name, bool isMoving, bool doNotInvokeMoveStopped = false)
     {
         bool exist = boolOfObjectsMoving.ContainsKey(name);
         if (exist)
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
             boolOfObjectsMoving.Add(name, isMoving);
         }
 
-        if (!isMoving)
+        if (!isMoving && !doNotInvokeMoveStopped)
         {
             MovementStopped?.Invoke();
         }

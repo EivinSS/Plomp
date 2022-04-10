@@ -26,4 +26,5 @@ public enum BlockType
     Ice,
     Fire,
     Button,
+    Static
 }
