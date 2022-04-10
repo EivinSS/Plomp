@@ -142,7 +142,7 @@ public class MovingObject : MonoBehaviour
     int chainCheck(Vector3 moveDirectionNormalize)
     {
         int chain = 0;
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 4f, movingBlockLayerMask);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 6f, movingBlockLayerMask);
         List<GameObject> seenGameObjects = new List<GameObject>();
         foreach (RaycastHit hit in hits)
         {
@@ -160,11 +160,10 @@ public class MovingObject : MonoBehaviour
                             seenGameObjects.Add(hit.collider.gameObject);
                             continue;
                         }
+                        chain++;
                     }
-
                 }
                 seenGameObjects.Add(hit.collider.gameObject);
-                chain++;
             }
         }
         return chain;
