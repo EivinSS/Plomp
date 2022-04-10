@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-
+using System;
+using System.Linq;
 public class MainMenuLevelObject : MonoBehaviour
 {
     private CanvasScript canvas;
@@ -25,11 +26,21 @@ public class MainMenuLevelObject : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(NameConfig.levelCleared))
         {
-            SceneManager.LoadScene(PlayerPrefs.GetInt(NameConfig.levelCleared));
+            int level = PlayerPrefs.GetInt(NameConfig.levelCleared);
+            string levelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == level).Key;
+            SceneManager.LoadScene(levelName);
         }
         else
         {
             Debug.Log("Ops, we dont have your level");
         }
+    }
+
+    public void pressLevels() {
+        SceneManager.LoadScene(NameConfig.levels);
+    }
+
+    public void goToMainMenu() {
+        SceneManager.LoadScene(NameConfig.mainMenu);
     }
 }
