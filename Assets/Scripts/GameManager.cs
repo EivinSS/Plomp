@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public UnityAction MovementStopped;
     public delegate void WaitAndDoMethodDelegate();
     public WaitAndDoMethodDelegate waitAndDoMethodDelegate;
+    public GameEventListener PlayerFallingListener;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -99,10 +100,14 @@ public class GameManager : MonoBehaviour
         winningBlock.ActivateWinningSphere();
     }
 
-    public void PlayerFalling()
+    public void FadeScreenToDarkness(float fadeDuration)
     {
         StartCoroutine(canvas.fadeToDarkness(fadeDuration));
-        StartCoroutine(WaitForSecondsAndDoMethod(1f, waitAndDoMethodDelegate));
+    }
+
+    public void WaitDoMethodDelegateEvent(float waitTime)
+    {
+        StartCoroutine(WaitForSecondsAndDoMethod(waitTime, waitAndDoMethodDelegate));
     }
 
     IEnumerator WaitForSecondsAndDoMethod(float seconds, WaitAndDoMethodDelegate method)

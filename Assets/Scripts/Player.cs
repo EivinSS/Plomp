@@ -6,10 +6,11 @@ public class Player : MovingObject
 {
     private bool isDead;
     private Vector3 movingToIfDead;
+    public GameEvent PlayerFalling;
 
     public override void Fall()
     {
-        GameManager.Instance.PlayerFalling();
+        PlayerFalling.Raise();
         StartCoroutine(FadeOutMaterial());
         StartCoroutine(MoveFall());
     }

@@ -130,6 +130,7 @@ MonoBehaviour:
   winningSphereMask:
     serializedVersion: 2
     m_Bits: 2048
+  PlayerFalling: {fileID: 11400000, guid: ae95539485343de42871f04a1cf1c42c, type: 2}
 --- !u!114 &1511108829
 MonoBehaviour:
   m_ObjectHideFlags: 0
