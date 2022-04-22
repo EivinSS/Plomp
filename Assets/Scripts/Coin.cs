@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    public GameEvent AddCoin;
     public void CollectCoin()
     {
+        AddCoin.Raise();
         Destroy(this.gameObject);
-        GameManager.Instance.AddCoin();
     }
 }

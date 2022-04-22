@@ -115,6 +115,7 @@ MonoBehaviour:
   moveSpeedAll: 10
   fallSpeed: 25
   StartPositionPlayer: {x: 0, y: 2, z: 0}
+  LevelCleared: {fileID: 11400000, guid: b2efeb10108203046946bd3c27065990, type: 2}
   blockLayerMask:
     serializedVersion: 2
     m_Bits: 64

@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public UnityAction MovementStopped;
     public delegate void WaitAndDoMethodDelegate();
     public WaitAndDoMethodDelegate waitAndDoMethodDelegate;
-    public GameEventListener PlayerFallingListener;
     private void Awake()
     {
         if (Instance != null && Instance != this)

@@ -9,6 +9,7 @@ public class MovingObject : MonoBehaviour
     public int moveSpeedAll = 5;
     public int fallSpeed = 25;
     public Vector3 StartPositionPlayer;
+    public GameEvent LevelCleared;
     [SerializeField] LayerMask blockLayerMask;
     [SerializeField] LayerMask movingBlockLayerMask;
     [SerializeField] LayerMask staticBlockLayerMask;
@@ -54,7 +55,7 @@ public class MovingObject : MonoBehaviour
         {
             if (this.gameObject.tag == "Player")
             {
-                GameManager.Instance.LevelCleared();
+                LevelCleared.Raise();
             }
             else if (this.gameObject.tag == "MovingBlock")
             {
