@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: 493407960163832350}
   - component: {fileID: 5661215940405459589}
   - component: {fileID: 6496774166805903609}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: WinningBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &524399107565017128
 Transform:
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winningMat: {fileID: 2100000, guid: 1101728d7e183dc409269904bad3feb6, type: 2}
   winningSphere: {fileID: 8704949986208897397}
+  toPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6496774166805903609
 MonoBehaviour:
   m_ObjectHideFlags: 0
