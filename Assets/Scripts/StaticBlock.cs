@@ -19,7 +19,6 @@ public class StaticBlock : Block
         toggle = !toggle;
         GameManager.Instance.TellGMMoveStatus(gameObject.name, true, true);
         StartCoroutine(MoveToPos(toPos));
-        
     }
 
     IEnumerator MoveToPos(Vector3 movingToTarget)

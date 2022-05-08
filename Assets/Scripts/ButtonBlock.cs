@@ -9,9 +9,10 @@ public class ButtonBlock : Block
     [SerializeField] Material objectOnTopMat;
     [SerializeField] Material nothingOnTopMat;
 
-    public bool IsCompleted;
     public bool NeedsToStandOnToTurnOn;
+    bool isCompleted;
     bool hasBeenStoodOn;
+    bool prevBeenStoodOn;
 
     [SerializeField] GameObject[] gameObjects;
 
@@ -52,27 +53,32 @@ public class ButtonBlock : Block
             }
         }
 
+        //Needs to stand on blocks
         if (NeedsToStandOnToTurnOn)
         {
-            if (objectOnTop && !IsCompleted)
+            if (!prevBeenStoodOn)
             {
-                DoAction();
-                GetComponent<Renderer>().material = objectOnTopMat;
-                IsCompleted = true;
+                if (objectOnTop)
+                {
+                    DoAction();
+                    GetComponent<Renderer>().material = objectOnTopMat;
+                    prevBeenStoodOn = true;
+                }
             }
-            else if (IsCompleted)
+            else if(!objectOnTop)
             {
                 DoAction();
                 GetComponent<Renderer>().material = nothingOnTopMat;
-                IsCompleted = false;
+                prevBeenStoodOn = false;
             }
         }
+        //Stand on once blocks
         else
         {
-            if (hasBeenStoodOn && !IsCompleted)
+            if (hasBeenStoodOn && !isCompleted)
             {
                 DoAction();
-                IsCompleted = true;
+                isCompleted = true;
                 GetComponent<Renderer>().material = objectOnTopMat;
             }
         }
