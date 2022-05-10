@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -127,19 +128,22 @@ public class GameManager : MonoBehaviour
             Debug.Log("You finished");
             return;
         }
-        if (PlayerPrefs.HasKey(NameConfig.levelCleared))
+        Debug.Log("You cleared this level");
+        if (PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
-            if (levelObject.levelNumber > PlayerPrefs.GetInt(NameConfig.levelCleared))
+            if (levelObject.levelNumber == PlayerPrefs.GetInt(NameConfig.currentMaxLevel))
             {
-                PlayerPrefs.SetInt(NameConfig.levelCleared, levelObject.levelNumber);
+                PlayerPrefs.SetInt(NameConfig.currentMaxLevel, levelObject.levelNumber + 1);
+                Debug.Log("Increasing currentMaxLevel");
             }
         }
         else
         {
             Debug.Log("We dont have playerprefs");
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("You cleared this level");
+        int level = PlayerPrefs.GetInt(NameConfig.currentMaxLevel);
+        string levelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == level).Key;
+        SceneManager.LoadScene(levelName);
     }
 
     private bool LastScene()

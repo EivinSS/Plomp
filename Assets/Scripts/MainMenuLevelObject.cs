@@ -15,18 +15,18 @@ public class MainMenuLevelObject : MonoBehaviour
         canvas.SetToBlack();
         StartCoroutine(canvas.fadeToBright(fadeDuration));
 
-        if (!PlayerPrefs.HasKey(NameConfig.levelCleared))
+        if (!PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
-            PlayerPrefs.SetInt(NameConfig.levelCleared, 0);
+            PlayerPrefs.SetInt(NameConfig.currentMaxLevel, 1);
             Debug.Log("setting level playerprefs first time");
         }
     }
 
     public void pressPlay()
     {
-        if (PlayerPrefs.HasKey(NameConfig.levelCleared))
+        if (PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
-            int level = PlayerPrefs.GetInt(NameConfig.levelCleared);
+            int level = PlayerPrefs.GetInt(NameConfig.currentMaxLevel);
             string levelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == level).Key;
             SceneManager.LoadScene(levelName);
         }
@@ -36,11 +36,19 @@ public class MainMenuLevelObject : MonoBehaviour
         }
     }
 
-    public void pressLevels() {
+    public void pressLevels()
+    {
         SceneManager.LoadScene(NameConfig.levels);
     }
 
-    public void goToMainMenu() {
+    public void goToMainMenu()
+    {
         SceneManager.LoadScene(NameConfig.mainMenu);
+    }
+
+    public void pressReset()
+    {
+        PlayerPrefs.SetInt(NameConfig.currentMaxLevel, 1);
+        Debug.Log("Setting level to 1 again");
     }
 }
