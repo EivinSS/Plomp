@@ -146,6 +146,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
+    public void LoadLevelWithBuildIndex(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
+    }
+
     private bool LastScene()
     {
         if (levelObject.IsLastLevel())
