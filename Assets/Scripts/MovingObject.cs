@@ -6,7 +6,7 @@ public class MovingObject : MonoBehaviour
 {
     public int moveDistance = 2;
     public Vector3 MovingDirection;
-    public int moveSpeedAll = 5;
+    public int moveSpeedAll = 10;
     public int fallSpeed = 25;
     public Vector3 StartPositionPlayer;
     public GameEvent LevelCleared;
@@ -74,20 +74,19 @@ public class MovingObject : MonoBehaviour
             movingToTarget = (direction * moveDistance) + transform.position;
             MovingDirection = direction;
             GameManager.Instance.TellGMMoveStatus(gameObject.name, true);
-            StartCoroutine(MoveStep(direction));
+            StartCoroutine(MoveStepRoutineMoveTowards(direction));
         }
     }
 
-    IEnumerator MoveStep(Vector3 direction)
+    IEnumerator MoveStepRoutineMoveTowards(Vector3 direction)
     {
         float dist = (float)moveDistance;
         movingToTarget = (direction * moveDistance) + transform.position;
-        Vector3 stepDistance = Vector3.Scale(Vector3.Scale(direction, new Vector3(dist, dist, dist)), new Vector3(0.04f, 1f, 0.04f));
+        Vector3 stepDistance = Vector3.Scale(Vector3.Scale(direction, new Vector3(dist, dist, dist)), new Vector3(0.1f, 1f, 0.1f));
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
-            Vector3 newPos = new Vector3(transform.position.x + stepDistance.x, transform.position.y, transform.position.z + stepDistance.z);
-            transform.position = newPos;
-            yield return new WaitForSeconds(0.008f);
+            transform.position = Vector3.MoveTowards(transform.position, movingToTarget, Time.deltaTime * moveSpeedAll);
+            yield return null;
         }
         RoundPlayerPosition();
         GameManager.Instance.TellGMMoveStatus(gameObject.name, false);
