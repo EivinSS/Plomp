@@ -14,5 +14,16 @@ public class Player : MovingObject
         StartCoroutine(FadeOutMaterial());
         StartCoroutine(MoveFall());
     }
+
+    public void Levitate()
+    {
+        StartCoroutine(DoLevitate());
+    }
+
+    IEnumerator DoLevitate()
+    {
+        yield return new WaitForSeconds(0.5f);
+        
+    }
 }
 

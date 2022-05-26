@@ -123,6 +123,19 @@ public class GameManager : MonoBehaviour
 
     public void LevelCleared()
     {
+        StartCoroutine(DoLevelClearedPazaz());
+    }
+
+    IEnumerator DoLevelClearedPazaz()
+    {
+        yield return new WaitForSeconds(2f);
+        FadeScreenToDarkness(1f);
+        yield return new WaitForSeconds(1f);
+        LevelClearedGoToNext();
+    }
+
+    void LevelClearedGoToNext()
+    {
         if (LastScene())
         {
             Debug.Log("You finished");

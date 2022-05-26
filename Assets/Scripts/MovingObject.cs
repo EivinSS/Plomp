@@ -56,6 +56,8 @@ public class MovingObject : MonoBehaviour
             if (this.gameObject.tag == "Player")
             {
                 LevelCleared.Raise();
+                Player player = (Player)this;
+                player.Levitate();
             }
             else if (this.gameObject.tag == "MovingBlock")
             {
