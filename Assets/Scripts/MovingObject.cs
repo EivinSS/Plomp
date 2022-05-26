@@ -82,7 +82,6 @@ public class MovingObject : MonoBehaviour
     {
         float dist = (float)moveDistance;
         movingToTarget = (direction * moveDistance) + transform.position;
-        Vector3 stepDistance = Vector3.Scale(Vector3.Scale(direction, new Vector3(dist, dist, dist)), new Vector3(0.1f, 1f, 0.1f));
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, movingToTarget, Time.deltaTime * moveSpeedAll);
@@ -96,14 +95,11 @@ public class MovingObject : MonoBehaviour
 
     public IEnumerator MoveFall()
     {
-        Vector3 direction = new Vector3(0, -1f, 0);
         movingToTarget = new Vector3(transform.position.x, transform.position.y - 20f, transform.position.z);
-        Vector3 stepDistance = new Vector3(0, -0.1f, 0);
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
-            Vector3 newPos = new Vector3(transform.position.x, transform.position.y + stepDistance.y, transform.position.z);
-            transform.position = newPos;
-            yield return new WaitForSeconds(0.005f);
+            transform.position = Vector3.MoveTowards(transform.position, movingToTarget, Time.deltaTime * moveSpeedAll);
+            yield return null;
         }
         yield break;
     }

@@ -33,13 +33,10 @@ public class WinningBlock : MonoBehaviour
 
     IEnumerator MoveToPos(Vector3 movingToTarget)
     {
-        Vector3 diffVector = movingToTarget - transform.position;
-        Vector3 stepDistance = Vector3.Scale(diffVector, new Vector3(0.025f, 0.025f, 0.025f));
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
         {
-            Vector3 newPos = new Vector3(transform.position.x + stepDistance.x, transform.position.y + stepDistance.y, transform.position.z + stepDistance.z);
-            transform.position = newPos;
-            yield return new WaitForSeconds(0.02f);
+            transform.position = Vector3.MoveTowards(transform.position, movingToTarget, Time.deltaTime * 2f);
+            yield return null;
         }
         GameManager.Instance.TellGMMoveStatus(gameObject.name, false, true);
         yield break;
