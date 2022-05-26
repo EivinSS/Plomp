@@ -35,11 +35,6 @@ public class SwipeManager : MonoBehaviour
             {
                 lp = touch.position;
 
-                if (lp.y > (Screen.height * (4f / 5f)))
-                {
-                    return;
-                }
-
                 if (Vector2.Distance(fp, lp) > minDistanceSwipe)
                 {
                     if (Mathf.Abs(fp.x - lp.x) > Mathf.Abs(fp.y - lp.y))
