@@ -13,6 +13,15 @@ public class GameManager : MonoBehaviour
     public UnityAction MovementStopped;
     public delegate void WaitAndDoMethodDelegate();
     public WaitAndDoMethodDelegate waitAndDoMethodDelegate;
+    private LevelObject levelObject;
+    private WinningBlock winningBlock;
+    private CanvasScript canvas;
+    private int totalCoinsOfLevel;
+    private int currentCoins;
+    private float fadeDuration = 1f;
+
+    private Dictionary<string, bool> boolOfObjectsMoving;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -24,15 +33,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-
-    private LevelObject levelObject;
-    private WinningBlock winningBlock;
-    private CanvasScript canvas;
-    private int totalCoinsOfLevel;
-    private int currentCoins;
-    private float fadeDuration = 1f;
-
-    private Dictionary<string, bool> boolOfObjectsMoving;
 
     private void Start()
     {

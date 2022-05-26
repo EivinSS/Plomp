@@ -9,6 +9,8 @@ public class MainMenuLevelObject : MonoBehaviour
     private CanvasScript canvas;
     private float fadeDuration = 1f;
 
+    public GameEvent PlayAd;
+
     private void Start()
     {
         canvas = GameObject.Find("Canvas").GetComponent<CanvasScript>();
@@ -55,5 +57,10 @@ public class MainMenuLevelObject : MonoBehaviour
     {
         PlayerPrefs.SetInt(NameConfig.currentMaxLevel, 1);
         Debug.Log("Setting level to 1 again");
+    }
+
+    public void PressPlayAddButton()
+    {
+        PlayAd.Raise();
     }
 }
