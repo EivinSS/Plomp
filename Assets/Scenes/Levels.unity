@@ -694,6 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bfe73b2584e6849a3b42ebfd1aa770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayAd: {fileID: 0}
 --- !u!1001 &896376295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1503,6 +1504,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 347241365553959985, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6067173194359722096, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
         type: 3}
       propertyPath: m_SortingOrder
