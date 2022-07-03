@@ -286,17 +286,26 @@ public class MovingObject : MonoBehaviour
         transform.position = new Vector3(x, y, z);
     }
 
-    public virtual IEnumerator FadeOutMaterial()
+    public virtual void FadeOutMaterials()
     {
         MeshRenderer renderer = GetComponent<MeshRenderer>();
+
+        foreach(Material m in renderer.materials)
+        {
+            StartCoroutine(FadeOutMaterial(m));
+        }
+    }
+
+    IEnumerator FadeOutMaterial(Material m)
+    {
         float elapsedTime = 0f;
-        Color initialColor = renderer.material.color;
+        Color initialColor = m.color;
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
 
         while (elapsedTime < 2f)
         {
             elapsedTime += 0.01f;
-            renderer.material.color = Color.Lerp(initialColor, targetColor, elapsedTime / 2f);
+            m.color = Color.Lerp(initialColor, targetColor, elapsedTime / 2f);
             yield return new WaitForSeconds(0.005f);
         }
         yield return null;

@@ -12,7 +12,7 @@ public class MovingBlock : MovingObject
     public override void Fall()
     {
         StartCoroutine(MoveFall());
-        StartCoroutine(FadeOutMaterial());
+        FadeOutMaterials();
         Destroy(gameObject, 2);
     }
 }

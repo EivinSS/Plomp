@@ -11,7 +11,7 @@ public class Player : MovingObject
     public override void Fall()
     {
         PlayerFalling.Raise();
-        StartCoroutine(FadeOutMaterial());
+        FadeOutMaterials();
         StartCoroutine(MoveFall());
     }
 
