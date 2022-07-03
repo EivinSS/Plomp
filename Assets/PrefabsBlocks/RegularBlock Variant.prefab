@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockType: 0
+  breakingBlock: 0
 --- !u!1001 &7484352050950511687
 PrefabInstance:
   m_ObjectHideFlags: 0
