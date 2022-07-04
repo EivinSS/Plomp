@@ -117,3 +117,5 @@ MonoBehaviour:
     m_Bits: 128
   objectOnTopMat: {fileID: 2100000, guid: 2bd5923c6b777db4ca9919f5abf0a1a9, type: 2}
   nothingOnTopMat: {fileID: 2100000, guid: 5e622b7cbbf719d4fb6bb46c8e1eec42, type: 2}
+  NeedsToStandOnToTurnOn: 0
+  gameObjects: []

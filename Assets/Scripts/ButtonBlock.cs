@@ -61,14 +61,14 @@ public class ButtonBlock : Block
                 if (objectOnTop)
                 {
                     DoAction();
-                    GetComponent<Renderer>().material = objectOnTopMat;
+                    GetComponent<MeshRenderer>().material = objectOnTopMat;
                     prevBeenStoodOn = true;
                 }
             }
             else if(!objectOnTop)
             {
                 DoAction();
-                GetComponent<Renderer>().material = nothingOnTopMat;
+                GetComponent<MeshRenderer>().material = nothingOnTopMat;
                 prevBeenStoodOn = false;
             }
         }
@@ -79,7 +79,7 @@ public class ButtonBlock : Block
             {
                 DoAction();
                 isCompleted = true;
-                GetComponent<Renderer>().material = objectOnTopMat;
+                GetComponent<MeshRenderer>().material = objectOnTopMat;
             }
         }
     }
