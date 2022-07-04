@@ -1401,6 +1401,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1243818731282527854, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6067173194359722096, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
         type: 3}
       propertyPath: m_SortingOrder
