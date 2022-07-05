@@ -10,6 +10,7 @@ public class MovingObject : MonoBehaviour
     public int fallSpeed = 25;
     public Vector3 StartPositionPlayer;
     public GameEvent LevelCleared;
+    [SerializeField] GameEvent disableSwipe;
     [SerializeField] LayerMask blockLayerMask;
     [SerializeField] LayerMask movingBlockLayerMask;
     [SerializeField] LayerMask staticBlockLayerMask;
@@ -55,6 +56,7 @@ public class MovingObject : MonoBehaviour
         {
             if (this.gameObject.tag == "Player")
             {
+                disableSwipe.Raise();
                 LevelCleared.Raise();
                 Player player = (Player)this;
                 player.Levitate();
