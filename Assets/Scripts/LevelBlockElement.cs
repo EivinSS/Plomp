@@ -51,7 +51,7 @@ public class LevelBlockElement : MonoBehaviour
         else
         {
             Color c = buttonImage.color;
-            c.a = 0.5f;
+            c.a = 0.7f;
             buttonImage.color = c;
         }
 
