@@ -6,17 +6,10 @@ using System;
 using System.Linq;
 public class MainMenuLevelObject : MonoBehaviour
 {
-    private CanvasScript canvas;
-    private float fadeDuration = 1f;
-
     public GameEvent PlayAd;
 
     private void Start()
     {
-        canvas = GameObject.Find("Canvas").GetComponent<CanvasScript>();
-        canvas.SetToBlack();
-        StartCoroutine(canvas.fadeToBright(fadeDuration));
-
         if (!PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
             PlayerPrefs.SetInt(NameConfig.currentMaxLevel, 1);
