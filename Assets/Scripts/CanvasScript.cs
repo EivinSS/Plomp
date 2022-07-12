@@ -21,6 +21,7 @@ public class CanvasScript : MonoBehaviour
         Color initialColor = fadeImage.color;
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
 
+
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
