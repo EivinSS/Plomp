@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-using System;
 using System.Linq;
 
 public class GameManager : MonoBehaviour
