@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 30;
+
         waitAndDoMethodDelegate = RestartLevel;
         boolOfObjectsMoving = new Dictionary<string, bool>();
 

@@ -10,6 +10,8 @@ public class MainMenuLevelObject : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 30;
+
         if (!PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
             PlayerPrefs.SetInt(NameConfig.currentMaxLevel, 1);

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 public class NameConfig
 {
     public static string mainMenu = "MainMenu";
-    public static string levels = "Levels";
+    public static string levels = "LevelsScene";
     public static string currentMaxLevel = "currentMaxLevel";
 
     public static string adManager = "AdManager";
@@ -13,7 +13,10 @@ public class NameConfig
         { "Level4", 4 },
         { "Level5", 5 },
         { "Level6", 6 },
-        { "Level7", 7 }
+        { "Level7", 7 },
+        { "Level8", 8 },
+        { "Level9", 9 },
+        { "Level10", 10 }
         };
 
 }
