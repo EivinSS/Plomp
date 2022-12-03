@@ -904,6 +904,7 @@ MonoBehaviour:
   fallSpeed: 25
   StartPositionPlayer: {x: 0, y: 0, z: 0}
   LevelCleared: {fileID: 0}
+  disableSwipe: {fileID: 0}
   blockLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -919,3 +920,6 @@ MonoBehaviour:
   winningSphereMask:
     serializedVersion: 2
     m_Bits: 2048
+  winningBlockMask:
+    serializedVersion: 2
+    m_Bits: 4096

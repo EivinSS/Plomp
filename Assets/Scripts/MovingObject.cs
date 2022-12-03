@@ -27,6 +27,11 @@ public class MovingObject : MonoBehaviour
         {
             return;
         }
+        //For the winning block
+        if (blockInFront(direction))
+        {
+            return;
+        }
         if (chainCheck(direction) > 2)
         {
             return;
@@ -177,6 +182,20 @@ public class MovingObject : MonoBehaviour
             }
         }
         return chain;
+    }
+
+    bool blockInFront(Vector3 moveDirectionNormalize)
+    {
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 1.5f, blockLayerMask);
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider.gameObject != this.gameObject)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     bool staticBlockInFront(Vector3 moveDirectionNormalize)

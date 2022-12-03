@@ -145,19 +145,30 @@ public class GameManager : MonoBehaviour
         Debug.Log("You cleared this level");
         if (PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
+            //We are on max level
             if (levelObject.levelNumber == PlayerPrefs.GetInt(NameConfig.currentMaxLevel))
             {
                 PlayerPrefs.SetInt(NameConfig.currentMaxLevel, levelObject.levelNumber + 1);
                 Debug.Log("Increasing currentMaxLevel");
+                int level = PlayerPrefs.GetInt(NameConfig.currentMaxLevel);
+                string levelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == level).Key;
+                SceneManager.LoadScene(levelName);
+            }
+            else
+            {
+                //Go to next level
+                string nextLevelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == levelObject.levelNumber+1).Key;
+                SceneManager.LoadScene(nextLevelName);
             }
         }
         else
         {
             Debug.Log("We dont have playerprefs");
+            PlayerPrefs.SetInt(NameConfig.currentMaxLevel, levelObject.levelNumber + 1);
+            string levelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == levelObject.levelNumber + 1).Key;
+            SceneManager.LoadScene(levelName);
         }
-        int level = PlayerPrefs.GetInt(NameConfig.currentMaxLevel);
-        string levelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == level).Key;
-        SceneManager.LoadScene(levelName);
+        
     }
 
     public void LoadLevelWithBuildIndex(int buildIndex)
