@@ -227,8 +227,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c0d1a8bd8da672749b766c28fcc82891, type: 2}
-  m_sharedMaterial: {fileID: 7232996777906386885, guid: c0d1a8bd8da672749b766c28fcc82891,
+  m_fontAsset: {fileID: 11400000, guid: e876cd7363218b0448f60ec279e40e46, type: 2}
+  m_sharedMaterial: {fileID: -6343171770187808385, guid: e876cd7363218b0448f60ec279e40e46,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 102.8
+  m_fontSize: 125
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -982,8 +982,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c0d1a8bd8da672749b766c28fcc82891, type: 2}
-  m_sharedMaterial: {fileID: 7232996777906386885, guid: c0d1a8bd8da672749b766c28fcc82891,
+  m_fontAsset: {fileID: 11400000, guid: e876cd7363218b0448f60ec279e40e46, type: 2}
+  m_sharedMaterial: {fileID: -6343171770187808385, guid: e876cd7363218b0448f60ec279e40e46,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 102.8
+  m_fontSize: 125
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1543,8 +1543,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Resume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c0d1a8bd8da672749b766c28fcc82891, type: 2}
-  m_sharedMaterial: {fileID: 7232996777906386885, guid: c0d1a8bd8da672749b766c28fcc82891,
+  m_fontAsset: {fileID: 11400000, guid: e876cd7363218b0448f60ec279e40e46, type: 2}
+  m_sharedMaterial: {fileID: -6343171770187808385, guid: e876cd7363218b0448f60ec279e40e46,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 102.8
+  m_fontSize: 125
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
