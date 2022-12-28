@@ -63,6 +63,7 @@ public class SwipeManager : MonoBehaviour
                             IfCanMoveMove(MoveDirectionEnum.Down);
                         }
                     }
+                    GameManager.Instance.PlayerMoveSound(GameManager.SoundEnum.PlayerMove);
                 }
             }
         }

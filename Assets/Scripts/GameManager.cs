@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private LevelObject levelObject;
     private WinningBlock winningBlock;
     private CanvasScript canvas;
+    private SoundsManager soundsManager;
     private int totalCoinsOfLevel;
     private int currentCoins;
     private float fadeDuration = 1f;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
         waitAndDoMethodDelegate = RestartLevel;
         boolOfObjectsMoving = new Dictionary<string, bool>();
 
+        soundsManager = GameObject.Find("SoundsManager").GetComponent<SoundsManager>();
+
         levelObject = GameObject.Find("LevelObject").GetComponent<LevelObject>();
         totalCoinsOfLevel = levelObject.GetTotalCoinsOfLevel();
 
@@ -48,6 +51,28 @@ public class GameManager : MonoBehaviour
         canvas = GameObject.Find("Canvas").GetComponent<CanvasScript>();
         canvas.SetToBlack();
         StartCoroutine(canvas.fadeToBright(fadeDuration));
+    }
+
+    public enum SoundEnum
+    {
+        PlayerMove,
+        BlockMove,
+        IceCrack,
+        Winning,
+        Coin,
+        Death,
+        ActivateGoal,
+    }
+
+
+    public void PlaySound(SoundEnum soundEnum)
+    {
+        soundsManager.PlaySound(soundEnum);
+    }
+
+    public void PlayerMoveSound(SoundEnum soundEnum)
+    {
+        soundsManager.PlayPlayerMoveSound(soundEnum);
     }
 
     public void TellGMMoveStatus(string name, bool isMoving, bool doNotInvokeMoveStopped = false)
@@ -85,6 +110,7 @@ public class GameManager : MonoBehaviour
     public void AddCoin()
     {
         currentCoins++;
+        soundsManager.PlaySound(SoundEnum.Coin);
         CheckEnoughCoins();
     }
 
@@ -93,6 +119,7 @@ public class GameManager : MonoBehaviour
         if (currentCoins >= totalCoinsOfLevel)
         {
             ActivateGoal();
+            soundsManager.PlaySound(SoundEnum.ActivateGoal);
         }
     }
 
