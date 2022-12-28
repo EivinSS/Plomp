@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f593fa9cea0aa714582997e8bb8a75eb, type: 2}
+  - {fileID: 2100000, guid: 82b3a75aca7ed6f4abe443d8019d9ddb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winningMat: {fileID: 2100000, guid: 1101728d7e183dc409269904bad3feb6, type: 2}
   winningSphere: {fileID: 8704949986208897397}
+  magicRing: {fileID: 2442888262741407832}
   toPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6496774166805903609
 MonoBehaviour:
@@ -254,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: magic_ring_03
       objectReference: {fileID: 0}
+    - target: {fileID: 194316, guid: 11387396ccd933544b0567a831ce751a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 460788, guid: 11387396ccd933544b0567a831ce751a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -384,6 +389,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11387396ccd933544b0567a831ce751a, type: 3}
+--- !u!1 &2442888262741407832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 194316, guid: 11387396ccd933544b0567a831ce751a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2442888262741577556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2442888262741248160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 460788, guid: 11387396ccd933544b0567a831ce751a,

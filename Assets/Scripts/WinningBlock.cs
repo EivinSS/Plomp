@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class WinningBlock : MonoBehaviour
 {
     [SerializeField] Material winningMat;
     [SerializeField] GameObject winningSphere;
+    [SerializeField] GameObject magicRing;
     [SerializeField] Vector3 toPosition;
 
     private void Start()
@@ -14,9 +16,15 @@ public class WinningBlock : MonoBehaviour
     }
     public void ActivateWinningSphere()
     {
-        SetWinningMat();
+        //SetWinningMat();
+        ActivateMagicRing();
         winningSphere.SetActive(true);
         MoveBlock();
+    }
+
+    private void ActivateMagicRing()
+    {
+        magicRing.SetActive(true);
     }
 
     void SetWinningMat()
