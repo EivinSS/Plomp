@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4829476426511440836}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4829476426511440838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 004c3a72582534a488bec6254ca9f0cd, type: 2}
+  - {fileID: 2100000, guid: 0c2ab8410951b5042955598cca68a2a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,9 +134,6 @@ MonoBehaviour:
   winningSphereMask:
     serializedVersion: 2
     m_Bits: 2048
-  winningBlockMask:
-    serializedVersion: 2
-    m_Bits: 4096
   PlayerFalling: {fileID: 11400000, guid: ae95539485343de42871f04a1cf1c42c, type: 2}
 --- !u!114 &1511108829
 MonoBehaviour:

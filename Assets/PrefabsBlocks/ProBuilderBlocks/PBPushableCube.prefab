@@ -920,6 +920,3 @@ MonoBehaviour:
   winningSphereMask:
     serializedVersion: 2
     m_Bits: 2048
-  winningBlockMask:
-    serializedVersion: 2
-    m_Bits: 4096
