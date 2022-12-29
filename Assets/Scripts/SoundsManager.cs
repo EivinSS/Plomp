@@ -19,6 +19,11 @@ public class SoundsManager : MonoBehaviour
 
     public void PlayPlayerMoveSound(GameManager.SoundEnum soundEnum)
     {
+        if (PlayerPrefs.GetInt(NameConfig.sound) == 0)
+        {
+            return;
+        }
+
         if (soundEnum == GameManager.SoundEnum.PlayerMove)
         {
             audioSourcePlayerMovement.clip = playerMove;
@@ -28,8 +33,12 @@ public class SoundsManager : MonoBehaviour
 
     public void PlaySound(GameManager.SoundEnum soundEnum)
     {
-        
-        if(soundEnum == GameManager.SoundEnum.BlockMove)
+        if (PlayerPrefs.GetInt(NameConfig.sound) == 0)
+        {
+            return;
+        }
+
+        if (soundEnum == GameManager.SoundEnum.BlockMove)
         {
             audioSourceOtherSounds.clip = blockMove;
 

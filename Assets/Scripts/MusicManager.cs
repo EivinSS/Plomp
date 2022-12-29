@@ -26,14 +26,19 @@ public class MusicManager : MonoBehaviour
 
         SceneManager.activeSceneChanged += SceneChange;
         DontDestroyOnLoad(this.gameObject);
-        
-        if(!_audio.isPlaying)
+
+        if (PlayerPrefs.GetInt(NameConfig.music) == 0)
         {
-            PlayCurrentSceneSong();
+            return;
+        }
+
+        if (!_audio.isPlaying)
+        {
+            PlayCurrentSceneSong(); 
         }
     }
 
-    void PlayCurrentSceneSong()
+    public void PlayCurrentSceneSong()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         foreach (SceneNameAudioClip sceneNameAudioClip in _sceneNameAudioClipList) {
@@ -63,7 +68,13 @@ public class MusicManager : MonoBehaviour
 
     void SceneChange(Scene current, Scene next)
     {
-        if(_audio != null && _audio.isPlaying)
+
+        if (PlayerPrefs.GetInt(NameConfig.music) == 0)
+        {
+            return;
+        }
+
+            if (_audio != null && _audio.isPlaying)
         {
             AudioClip previousClip = _audio.clip;
             string currentSceneName = SceneManager.GetActiveScene().name;
@@ -86,5 +97,10 @@ public class MusicManager : MonoBehaviour
             _audio.clip = GetAudioClipOfScene(SceneManager.GetActiveScene().name);
             _audio.Play();
         }
+    }
+
+    public void StopMusic()
+    {
+        _audio.Stop();
     }
 }

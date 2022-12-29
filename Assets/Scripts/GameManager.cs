@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         canvas = GameObject.Find("Canvas").GetComponent<CanvasScript>();
         canvas.SetToBlack();
         StartCoroutine(canvas.fadeToBright(fadeDuration));
+        CheckEnoughCoins();
     }
 
     public enum SoundEnum
