@@ -32,7 +32,7 @@ public class MovingObject : MonoBehaviour
         {
             return;
         }
-        if (chainCheck(direction) > 2)
+        if (chainCheck(direction) > 1)
         {
             return;
         }
@@ -89,6 +89,7 @@ public class MovingObject : MonoBehaviour
 
     IEnumerator MoveStepRoutineMoveTowards(Vector3 direction)
     {
+        Moving();
         float dist = (float)moveDistance;
         movingToTarget = (direction * moveDistance) + transform.position;
         while (Vector3.Distance(transform.position, movingToTarget) >= 0.01f)
@@ -252,6 +253,11 @@ public class MovingObject : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public virtual void Moving()
+    {
+        Debug.Log("Moving");
     }
 
     public virtual void Fall()

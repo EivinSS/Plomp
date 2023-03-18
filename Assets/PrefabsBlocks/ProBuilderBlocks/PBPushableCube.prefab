@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5256394813099640653}
   - component: {fileID: 5256394813099640654}
   - component: {fileID: 5174407042610764519}
+  - component: {fileID: 7423767593010735446}
   m_Layer: 7
   m_Name: PBPushableCube
   m_TagString: MovingBlock
@@ -920,3 +921,31 @@ MonoBehaviour:
   winningSphereMask:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &7423767593010735446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256394813099640649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7a7d6604f9d724297302ef72ae7c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: ea2dd0344c14b75408f75dc77e4dff3a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5174407042610764519}
+        m_TargetAssemblyTypeName: MovingBlock, Assembly-CSharp
+        m_MethodName: PlayerMovesSetCanMakeSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

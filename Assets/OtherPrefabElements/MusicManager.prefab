@@ -55,7 +55,7 @@ MonoBehaviour:
   - SceneName: Level1
     AudioClip: {fileID: 8300000, guid: 36dc77616856be14ca8104590f6dde2f, type: 3}
   - SceneName: Level2
-    AudioClip: {fileID: 8300000, guid: d1498a36b59af9d469283b6962644bcc, type: 3}
+    AudioClip: {fileID: 8300000, guid: 36dc77616856be14ca8104590f6dde2f, type: 3}
   - SceneName: Level3
     AudioClip: {fileID: 8300000, guid: 15023b17a639a0c44af65da4ec9bb211, type: 3}
   - SceneName: Level4

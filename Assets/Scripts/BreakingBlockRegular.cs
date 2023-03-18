@@ -25,6 +25,7 @@ public class BreakingBlockRegular : Block
     public override void DecrementTimesBeforeBreaking()
     {
         timesBeforeBreaking--;
+        GameManager.Instance.PlaySound(GameManager.SoundEnum.IceCrack);
     }
 
     public override bool CheckIfBreak()

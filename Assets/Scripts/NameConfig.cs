@@ -20,5 +20,4 @@ public class NameConfig
         { "Level9", 9 },
         { "Level10", 10 }
         };
-
 }

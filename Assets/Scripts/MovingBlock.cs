@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingBlock : MovingObject
 {
+    private bool canMakeSound;
     public MovingBlock()
     {
         moveSpeedAll = 15;
@@ -14,5 +15,24 @@ public class MovingBlock : MovingObject
         StartCoroutine(MoveFall());
         FadeOutMaterials();
         Destroy(gameObject, 2);
+    }
+
+    public override void Moving()
+    {
+        MakeSoundOnce();
+    }
+
+    public void PlayerMovesSetCanMakeSound()
+    {
+        canMakeSound = true;
+    }
+
+    public void MakeSoundOnce()
+    {
+        if(canMakeSound)
+        {
+            GameManager.Instance.PlaySound(GameManager.SoundEnum.BlockMove);
+            canMakeSound = false;
+        }
     }
 }

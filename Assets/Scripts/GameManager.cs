@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     private int currentCoins;
     private float fadeDuration = 1f;
 
-    private Dictionary<string, bool> boolOfObjectsMoving;
+    public GameEvent PlayerMovesNow;
+
+    public Dictionary<string, bool> boolOfObjectsMoving;
 
     private void Awake()
     {
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
             }
         }
         boolOfObjectsMoving.Clear();
+        PlayerMovesNow.Raise();
         return true;
     }
 

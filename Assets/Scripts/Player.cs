@@ -13,6 +13,7 @@ public class Player : MovingObject
         PlayerFalling.Raise();
         FadeOutMaterials();
         StartCoroutine(MoveFall());
+        GameManager.Instance.PlaySound(GameManager.SoundEnum.Death);
     }
 
     public void Levitate()
@@ -23,7 +24,6 @@ public class Player : MovingObject
     IEnumerator DoLevitate()
     {
         yield return new WaitForSeconds(0.5f);
-        
     }
 }
 
