@@ -12,30 +12,33 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelsScene.unity
     guid: db82d796ac6e76045a02426d0f7212ba
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
+    path: Assets/Scenes/MaybeRealLevels/Level1.unity
+    guid: 660bd5669424d924f80fe13856c03f24
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/MigLevel1.unity
     guid: ffbea5ef9225116498eed69a41f2b518
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level2.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/MigLevel2.unity
     guid: 1fefcd451c86f63498adcc601cefcb24
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level3.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level3.unity
     guid: ae951436bdd58154f9400fa0d423f83a
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level4.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level4.unity
     guid: cd49b7e01209f70458a7dc3397650534
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level5.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level5.unity
     guid: f79c11adc19476245b2231d3ea85e1f0
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level6.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level6.unity
     guid: 18148664bfeb5f740abdd1a380a05c80
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level7.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level7.unity
     guid: 9b630953b5853c64092c22c192954714
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level8.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level8.unity
     guid: f941b4f35ad652948ba89b549ee86603
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level9.unity
+  - enabled: 0
+    path: Assets/Scenes/MigLevels/Level9.unity
     guid: d14d13da70577534a9ac72c81a373897
   m_configObjects: {}

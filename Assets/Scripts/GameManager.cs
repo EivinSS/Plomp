@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelCleared()
     {
+        soundsManager.PlaySound(SoundEnum.Winning);
         StartCoroutine(DoLevelClearedPazaz());
     }
 
@@ -170,6 +171,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("You finished");
             return;
         }
+
         Debug.Log("You cleared this level");
         if (PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {

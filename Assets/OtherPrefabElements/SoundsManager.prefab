@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourcePlayerMovement: {fileID: 4361459051911903421}
-  playerMove: {fileID: 8300000, guid: 09fec231489cdad43a99c60aaaa6f0de, type: 3}
+  playerMove: {fileID: 0}
   audioSourceOtherSounds: {fileID: 4121176547946415159}
   blockMove: {fileID: 0}
-  iceCrack: {fileID: 0}
-  winning: {fileID: 0}
-  coin: {fileID: 8300000, guid: d1ec91d384adcb94183419644f5fd8cd, type: 3}
+  iceCrack: {fileID: 8300000, guid: 810cd1e315c85a346bb6b8935ba81e15, type: 3}
+  winning: {fileID: 8300000, guid: 7678d136c00dc7e43845a03b076bc9f5, type: 3}
+  coin: {fileID: 8300000, guid: 2ac94919fc17a744daae2ab30ef67e53, type: 3}
   death: {fileID: 0}
   activateGoal: {fileID: 8300000, guid: 6a46a62b512cc2543aeb7d3ca41e531b, type: 3}
 --- !u!82 &4121176547946415159

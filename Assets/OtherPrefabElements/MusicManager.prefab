@@ -60,8 +60,8 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 15023b17a639a0c44af65da4ec9bb211, type: 3}
   - SceneName: Level4
     AudioClip: {fileID: 8300000, guid: d1498a36b59af9d469283b6962644bcc, type: 3}
-  - SceneName: 
-    AudioClip: {fileID: 0}
+  - SceneName: ViljarLevel2
+    AudioClip: {fileID: 8300000, guid: d1498a36b59af9d469283b6962644bcc, type: 3}
   - SceneName: 
     AudioClip: {fileID: 0}
   - SceneName: 
