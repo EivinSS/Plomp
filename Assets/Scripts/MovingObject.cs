@@ -158,7 +158,7 @@ public class MovingObject : MonoBehaviour
     int chainCheck(Vector3 moveDirectionNormalize)
     {
         int chain = 0;
-        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 6f, movingBlockLayerMask);
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.TransformDirection(moveDirectionNormalize), 4f, movingBlockLayerMask);
         List<GameObject> seenGameObjects = new List<GameObject>();
         foreach (RaycastHit hit in hits)
         {
@@ -257,7 +257,6 @@ public class MovingObject : MonoBehaviour
 
     public virtual void Moving()
     {
-        Debug.Log("Moving");
     }
 
     public virtual void Fall()
