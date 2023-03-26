@@ -47,12 +47,20 @@ public class LevelBlockElement : MonoBehaviour
             Color c = buttonImage.color;
             c.a = 1f;
             buttonImage.color = c;
+
+            Color textColor = text.color;
+            textColor.a = 1f;
+            text.color = textColor;
         }
         else
         {
             Color c = buttonImage.color;
             c.a = 0.7f;
             buttonImage.color = c;
+
+            Color textColor = text.color;
+            textColor.a = 0.5f;
+            text.color = textColor;
         }
 
         
