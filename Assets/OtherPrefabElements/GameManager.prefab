@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FreezeInput: 0
   PlayerMovesNow: {fileID: 11400000, guid: ea2dd0344c14b75408f75dc77e4dff3a, type: 2}
+  PlayerTriesAgainOrDies: {fileID: 11400000, guid: 2dd7aafbe91f807479d75ad4ef52b94c,
+    type: 2}
 --- !u!114 &8980825690946505320
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,10 +4,11 @@ using System.Linq;
 public class MainMenuLevelObject : MonoBehaviour
 {
     public GameEvent PlayAd;
+    public GameEvent PlayAddBanner;
 
     private void Start()
     {
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
 
         if (!PlayerPrefs.HasKey(NameConfig.currentMaxLevel))
         {
@@ -54,5 +55,10 @@ public class MainMenuLevelObject : MonoBehaviour
     public void PressPlayAddButton()
     {
         PlayAd.Raise();
+    }
+
+    public void PressPlayAddBannerButton()
+    {
+        PlayAddBanner.Raise();
     }
 }

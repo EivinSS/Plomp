@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private float fadeDuration = 1f;
 
     public GameEvent PlayerMovesNow;
+    public GameEvent PlayerTriesAgainOrDies;
 
     public Dictionary<string, bool> boolOfObjectsMoving;
 
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PlayerTriesAgainOrDies.Raise();
     }
 
     public void LevelCleared()

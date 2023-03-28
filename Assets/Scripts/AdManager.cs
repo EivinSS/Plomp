@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class AdManager : MonoBehaviour
+public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
 {
+    private string gameId;
+    string iOSGameId = "4771392";
+    string androidGameId = "4771393";
+
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag(NameConfig.adManager);
@@ -13,16 +17,17 @@ public class AdManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+        InitializeAds();
     }
 
-#if UNITY_IOS
-    string gameId = "4771392"
-#else
-    string gameId = "4771393";
-#endif
-    void Start()
+
+
+    public void InitializeAds()
     {
-        Advertisement.Initialize(gameId);
+        gameId = (Application.platform == RuntimePlatform.IPhonePlayer)
+            ? iOSGameId
+            : androidGameId;
+        Advertisement.Initialize(gameId, this);
     }
 
     public void PlayAd()
@@ -38,5 +43,42 @@ public class AdManager : MonoBehaviour
             Advertisement.Show("Interstitial_Android");
         }
 #endif
+    }
+
+    public void PlayBanner()
+    {
+#if UNITY_IOS
+        if (Advertisement.IsReady("Banner_iOS"))
+        {
+            Advertisement.Show("Banner_iOS");
+        }
+#else
+        if (Advertisement.IsReady("Banner_Android"))
+        {
+            Advertisement.Show("Banner_Android");
+        }
+#endif
+    }
+
+
+
+    void IUnityAdsInitializationListener.OnInitializationComplete()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    void IUnityAdsInitializationListener.OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    int deaths = 0;
+    public void Death()
+    {
+        deaths++;
+        if(deaths % 30 == 0)
+        {
+            PlayAd();
+        }
     }
 }

@@ -8,7 +8,12 @@ public class SoundsManager : MonoBehaviour
 
     [SerializeField] AudioClip playerMove;
 
-    [SerializeField] AudioSource audioSourceOtherSounds;
+    [SerializeField] AudioSource audioSourceBlockMove;
+    [SerializeField] AudioSource audioSourceIceCrack;
+    [SerializeField] AudioSource audioSourceWinning;
+    [SerializeField] AudioSource audioSourceCoin;
+    [SerializeField] AudioSource audioSourceDeath;
+    [SerializeField] AudioSource audioSourceActivateGoal;
 
     [SerializeField] AudioClip blockMove;
     [SerializeField] AudioClip iceCrack;
@@ -40,35 +45,34 @@ public class SoundsManager : MonoBehaviour
 
         if (soundEnum == GameManager.SoundEnum.BlockMove)
         {
-            audioSourceOtherSounds.clip = blockMove;
+            audioSourceBlockMove.clip = blockMove;
+            audioSourceBlockMove.Play();
 
         }
         if(soundEnum == GameManager.SoundEnum.IceCrack)
         {
-            audioSourceOtherSounds.clip = iceCrack;
-
+            audioSourceIceCrack.clip = iceCrack;
+            audioSourceIceCrack.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Winning)
         {
-            audioSourceOtherSounds.clip = winning;
-
+            audioSourceWinning.clip = winning;
+            audioSourceWinning.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Coin)
         {
-            audioSourceOtherSounds.clip = coin;
+            audioSourceCoin.clip = coin;
+            audioSourceCoin.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Death)
         {
-            audioSourceOtherSounds.clip = death;
-            
-        }if(soundEnum == GameManager.SoundEnum.ActivateGoal)
-        {
-            audioSourceOtherSounds.clip = activateGoal;
-            
+            audioSourceDeath.clip = death;
+            audioSourceDeath.Play();    
         }
-        if(audioSourceOtherSounds.clip != null)
+        if(soundEnum == GameManager.SoundEnum.ActivateGoal)
         {
-            audioSourceOtherSounds.Play();
-        }   
+            audioSourceActivateGoal.clip = activateGoal;
+            audioSourceActivateGoal.Play();
+        } 
     }
 }
