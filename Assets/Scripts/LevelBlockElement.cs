@@ -19,15 +19,12 @@ public class LevelBlockElement : MonoBehaviour
     [SerializeField]
     TMP_Text text;
 
-    [SerializeField]
-    Image buttonImage;
-
 
     private void Start()
     {
         SetLevelText();
         CeckLevelAvailability();
-        SetViewBasedOnAvailibility();
+        StartCoroutine(SetViewBasedOnAvailibility());
     }
 
     void SetLevelText()
@@ -40,13 +37,12 @@ public class LevelBlockElement : MonoBehaviour
         levelAvailable = level <= PlayerPrefs.GetInt(NameConfig.currentMaxLevel) ? true : false;
     }
 
-    void SetViewBasedOnAvailibility()
+    IEnumerator SetViewBasedOnAvailibility()
     {
+        yield return new WaitForEndOfFrame();
+
         if (levelAvailable)
         {
-            Color c = buttonImage.color;
-            c.a = 1f;
-            buttonImage.color = c;
 
             Color textColor = text.color;
             textColor.a = 1f;
@@ -54,16 +50,10 @@ public class LevelBlockElement : MonoBehaviour
         }
         else
         {
-            Color c = buttonImage.color;
-            c.a = 0.7f;
-            buttonImage.color = c;
-
             Color textColor = text.color;
             textColor.a = 0.5f;
             text.color = textColor;
         }
-
-        
     }
 
     public void LevelElementButtonClick()
