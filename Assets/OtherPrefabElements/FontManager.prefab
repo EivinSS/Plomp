@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newFont: {fileID: 11400000, guid: 027b9e27083abcf43a9f90dff734ea54, type: 2}
-  color: {r: 0, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}

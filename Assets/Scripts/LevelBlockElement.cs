@@ -51,7 +51,7 @@ public class LevelBlockElement : MonoBehaviour
         else
         {
             Color textColor = text.color;
-            textColor.a = 0.5f;
+            textColor.a = 0.3f;
             text.color = textColor;
         }
     }
