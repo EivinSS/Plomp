@@ -52,6 +52,8 @@ MonoBehaviour:
   PlayerMovesNow: {fileID: 11400000, guid: ea2dd0344c14b75408f75dc77e4dff3a, type: 2}
   PlayerTriesAgainOrDies: {fileID: 11400000, guid: 2dd7aafbe91f807479d75ad4ef52b94c,
     type: 2}
+  PlayAd: {fileID: 11400000, guid: 44daa97fe8c74a54b9747327751206b3, type: 2}
+  PlayAdBanner: {fileID: 11400000, guid: b35b6a5d2badba04e816dad0e413e3ce, type: 2}
 --- !u!114 &8980825690946505320
 MonoBehaviour:
   m_ObjectHideFlags: 0

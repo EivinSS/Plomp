@@ -71,14 +71,4 @@ public class AdManager : MonoBehaviour, IUnityAdsInitializationListener
     {
         throw new System.NotImplementedException();
     }
-
-    int deaths = 0;
-    public void Death()
-    {
-        deaths++;
-        if(deaths % 30 == 0)
-        {
-            PlayAd();
-        }
-    }
 }

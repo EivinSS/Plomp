@@ -44,7 +44,6 @@ public class MusicManager : MonoBehaviour
         foreach (SceneNameAudioClip sceneNameAudioClip in _sceneNameAudioClipList) {
             if(sceneNameAudioClip.SceneName == currentSceneName)
             {
-                Debug.Log(currentSceneName);
                 _audio.clip = sceneNameAudioClip.AudioClip;
                 _audio.Play();
                 return;
@@ -59,7 +58,6 @@ public class MusicManager : MonoBehaviour
         {
             if (sceneNameAudioClip.SceneName == sceneName)
             {
-                Debug.Log("currentSceneName");
                 return sceneNameAudioClip.AudioClip;
             }
         }
@@ -78,7 +76,6 @@ public class MusicManager : MonoBehaviour
         {
             AudioClip previousClip = _audio.clip;
             string currentSceneName = SceneManager.GetActiveScene().name;
-            Debug.Log(currentSceneName);
             AudioClip nextClip = GetAudioClipOfScene(currentSceneName);
 
             if(previousClip == nextClip)

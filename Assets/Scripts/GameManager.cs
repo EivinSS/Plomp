@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public GameEvent PlayerMovesNow;
     public GameEvent PlayerTriesAgainOrDies;
+    public GameEvent PlayAd;
+    public GameEvent PlayAdBanner;
 
     public Dictionary<string, bool> boolOfObjectsMoving;
 
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
         Death,
         ActivateGoal,
     }
+
 
 
     public void PlaySound(SoundEnum soundEnum)
@@ -150,10 +153,20 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        PlayerTriesAgainOrDies.Raise();
+        Death();
+    }
+    public void Death()
+    {
+        int totalDeaths = PlayerPrefs.GetInt("Deaths", 0);
+        int newDeaths = totalDeaths + 1;
+        PlayerPrefs.SetInt("Deaths", newDeaths);
+        if (newDeaths % 30 == 0)
+        {
+            PlayAd.Raise();
+        }
     }
 
-    public void LevelCleared()
+        public void LevelCleared()
     {
         soundsManager.PlaySound(SoundEnum.Winning);
         StartCoroutine(DoLevelClearedPazaz());

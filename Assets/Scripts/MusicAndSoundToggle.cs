@@ -6,8 +6,11 @@ public class MusicAndSoundToggle : MonoBehaviour
     [SerializeField] GameEvent on;
     [SerializeField] GameEvent off;
 
-    [SerializeField] Toggle musicToggle;
-    [SerializeField] Toggle soundToggle;
+    [SerializeField] Button musicToggle;
+    [SerializeField] Button soundToggle;
+    [SerializeField] Image musicImage;
+    [SerializeField] Image soundImage;
+
 
     public bool isMusic;
     public bool isSound;
@@ -18,11 +21,21 @@ public class MusicAndSoundToggle : MonoBehaviour
         {
             if (PlayerPrefs.GetInt(NameConfig.music) == 1)
             {
-                musicToggle.isOn = true;
+                Color myColor = musicImage.color;
+                myColor.r = 0f;
+                myColor.g = 255f;
+                myColor.b = 0f;
+                myColor.a = 1f;
+                musicImage.color = myColor;
             }
             else if (PlayerPrefs.GetInt(NameConfig.music) == 0)
             {
-                musicToggle.isOn = false;
+                Color myColor = musicImage.color;
+                myColor.r = 0f;
+                myColor.g = 0f;
+                myColor.b = 0f;
+                myColor.a = 0.5f;
+                musicImage.color = myColor;
             }
         }
         
@@ -30,56 +43,56 @@ public class MusicAndSoundToggle : MonoBehaviour
         {
             if (PlayerPrefs.GetInt(NameConfig.sound) == 1)
             {
-                soundToggle.isOn = true;
+                Color myColor = soundImage.color;
+                myColor.r = 0f;
+                myColor.g = 255;
+                myColor.b = 0f;
+                myColor.a = 1f;
+                soundImage.color = myColor;
             }
             else if (PlayerPrefs.GetInt(NameConfig.sound) == 0)
             {
-                soundToggle.isOn = false;
+                Color myColor = soundImage.color;
+                myColor.r = 0f;
+                myColor.g = 0f;
+                myColor.b = 0f;
+                myColor.a = 0.5f;
+                soundImage.color = myColor;
             }
         }
     }
 
-    public void UserToggleMusic(bool toggle)
+    public void UserToggleMusic()
     {
-        if(toggle)
+        bool toggleWasOff = PlayerPrefs.GetInt(NameConfig.music) == 0;
+        if (toggleWasOff)
         {
-            if(PlayerPrefs.GetInt(NameConfig.music) == 1)
-            {
-                return;
-            }
             on.Raise();
             PlayerPrefs.SetInt(NameConfig.music, 1);
+            Start();
         }
-        if(!toggle)
+        if(!toggleWasOff)
         {
-            if(PlayerPrefs.GetInt(NameConfig.music) == 0)
-            {
-                return;
-            }
             off.Raise();
             PlayerPrefs.SetInt(NameConfig.music, 0);
+            Start();
         }
     }
 
-    public void UserToggleSound(bool toggle)
+    public void UserToggleSound()
     {
-        if (toggle)
+        bool toggleWasOff = PlayerPrefs.GetInt(NameConfig.sound) == 0;
+        if (toggleWasOff)
         {
-            if (PlayerPrefs.GetInt(NameConfig.sound) == 1)
-            {
-                return;
-            }
             on.Raise();
             PlayerPrefs.SetInt(NameConfig.sound, 1);
+            Start();
         }
-        if (!toggle)
+        if (!toggleWasOff)
         {
-            if (PlayerPrefs.GetInt(NameConfig.sound) == 0)
-            {
-                return;
-            }
             off.Raise();
             PlayerPrefs.SetInt(NameConfig.sound, 0);
+            Start();
         }
     }
 }
