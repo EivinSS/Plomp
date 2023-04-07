@@ -10,9 +10,30 @@ public class WinningBlock : MonoBehaviour
     [SerializeField] GameObject magicRing;
     [SerializeField] Vector3 toPosition;
 
-    private void Start()
+    void Start()
     {
-        winningSphere.SetActive(false);
+        StartCoroutine(Starting());
+    }
+
+    IEnumerator Starting()
+    {
+        yield return new WaitForEndOfFrame();
+
+        if (GameManager.Instance.CheckEnoughCoins())
+        {
+            SetWinningSphereInitially();
+        }
+        else
+        {
+            winningSphere.SetActive(false);
+            magicRing.SetActive(false);
+        }
+    }
+
+    void SetWinningSphereInitially()
+    {
+        ActivateMagicRing();
+        winningSphere.SetActive(true);
     }
     public void ActivateWinningSphere()
     {

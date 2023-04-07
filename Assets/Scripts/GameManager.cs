@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
         canvas = GameObject.Find("Canvas").GetComponent<CanvasScript>();
         canvas.SetToBlack();
         StartCoroutine(canvas.fadeToBright(fadeDuration));
-        CheckEnoughCoins();
     }
 
     public enum SoundEnum
@@ -117,16 +116,22 @@ public class GameManager : MonoBehaviour
     {
         currentCoins++;
         soundsManager.PlaySound(SoundEnum.Coin);
-        CheckEnoughCoins();
+
+        if(CheckEnoughCoins())
+        {
+            EnoughCoins();
+        }
     }
 
-    private void CheckEnoughCoins()
+    public bool CheckEnoughCoins()
     {
-        if (currentCoins >= totalCoinsOfLevel)
-        {
-            ActivateGoal();
-            soundsManager.PlaySound(SoundEnum.ActivateGoal);
-        }
+        return currentCoins >= totalCoinsOfLevel;
+    }
+
+    public void EnoughCoins()
+    {
+        ActivateGoal();
+        soundsManager.PlaySound(SoundEnum.ActivateGoal);
     }
 
     private void ActivateGoal()
@@ -174,9 +179,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DoLevelClearedPazaz()
     {
-        yield return new WaitForSeconds(2f);
-        FadeScreenToDarkness(1f);
         yield return new WaitForSeconds(1f);
+        FadeScreenToDarkness(1f);
+        yield return new WaitForSeconds(0.5f);
         LevelClearedGoToNext();
     }
 
