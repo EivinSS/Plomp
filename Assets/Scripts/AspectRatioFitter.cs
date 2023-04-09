@@ -23,12 +23,12 @@ public class AspectRatioFitter : MonoBehaviour
         //put width equal each other
         if(arParent >= arImage)
         {
-            goRectTransform.sizeDelta = new Vector2(pWidth, (pWidth / arImage));
+            goRectTransform.sizeDelta = new Vector2(pWidth+2, (pWidth / arImage)+2);
         }
         //put height equal each other
         else if(arParent < arImage)
         {
-            goRectTransform.sizeDelta = new Vector2((pHeight * arImage), pHeight);
+            goRectTransform.sizeDelta = new Vector2((pHeight * arImage)+2, pHeight+2);
         }
     }
 }

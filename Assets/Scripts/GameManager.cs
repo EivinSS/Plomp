@@ -179,8 +179,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DoLevelClearedPazaz()
     {
-        yield return new WaitForSeconds(1f);
-        FadeScreenToDarkness(1f);
+        yield return new WaitForSeconds(0.5f);
+        FadeScreenToDarkness(0.5f);
         yield return new WaitForSeconds(0.5f);
         LevelClearedGoToNext();
     }
