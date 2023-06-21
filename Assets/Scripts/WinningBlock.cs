@@ -26,19 +26,19 @@ public class WinningBlock : MonoBehaviour
         else
         {
             winningSphere.SetActive(false);
-            magicRing.SetActive(false);
+            //magicRing.SetActive(false);
         }
     }
 
     void SetWinningSphereInitially()
     {
-        ActivateMagicRing();
+        //ActivateMagicRing();
         winningSphere.SetActive(true);
     }
     public void ActivateWinningSphere()
     {
         //SetWinningMat();
-        ActivateMagicRing();
+        //ActivateMagicRing();
         winningSphere.SetActive(true);
         MoveBlock();
     }

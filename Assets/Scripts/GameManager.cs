@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         levelObject = GameObject.Find("LevelObject").GetComponent<LevelObject>();
         totalCoinsOfLevel = levelObject.GetTotalCoinsOfLevel();
 
-        winningBlock = GameObject.Find("WinningBlock").GetComponent<WinningBlock>();
+        winningBlock = GameObject.Find("Winning2").GetComponent<WinningBlock>();
 
         canvas = GameObject.Find("Canvas").GetComponent<CanvasScript>();
         canvas.SetToBlack();
