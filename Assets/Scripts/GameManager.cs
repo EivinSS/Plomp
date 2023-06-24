@@ -208,8 +208,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 //Go to next level
-                string nextLevelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == levelObject.levelNumber+1).Key;
-                SceneManager.LoadScene(nextLevelName);
+                LoadNextLevel();
             }
         }
         else
@@ -225,6 +224,12 @@ public class GameManager : MonoBehaviour
     public void LoadLevelWithBuildIndex(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
+    }
+
+    public void LoadNextLevel()
+    {
+        string nextLevelName = NameConfig.levelDictionary.FirstOrDefault(levelDict => levelDict.Value == levelObject.levelNumber + 1).Key;
+        SceneManager.LoadScene(nextLevelName);
     }
 
     private bool LastScene()
