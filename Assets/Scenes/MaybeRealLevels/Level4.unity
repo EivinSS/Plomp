@@ -393,12 +393,12 @@ PrefabInstance:
     - target: {fileID: 2958157223337336500, guid: 7af6dd309ca7e724985b8b9853145caa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.21538012
+      value: -0.21538009
       objectReference: {fileID: 0}
     - target: {fileID: 2958157223337336500, guid: 7af6dd309ca7e724985b8b9853145caa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13960607
+      value: 0.13960604
       objectReference: {fileID: 0}
     - target: {fileID: 2958157223337336500, guid: 7af6dd309ca7e724985b8b9853145caa,
         type: 3}
@@ -2917,12 +2917,12 @@ PrefabInstance:
     - target: {fileID: 6877793736042364432, guid: 41165a8c239534a40942d8adc6fe4445,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.21538012
+      value: -0.21538009
       objectReference: {fileID: 0}
     - target: {fileID: 6877793736042364432, guid: 41165a8c239534a40942d8adc6fe4445,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.13960607
+      value: 0.13960604
       objectReference: {fileID: 0}
     - target: {fileID: 6877793736042364432, guid: 41165a8c239534a40942d8adc6fe4445,
         type: 3}
@@ -5126,6 +5126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarsParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102821309784394821, guid: 71f6a41bc088d164ba776572cfd9a742,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8102821309784394822, guid: 71f6a41bc088d164ba776572cfd9a742,
         type: 3}

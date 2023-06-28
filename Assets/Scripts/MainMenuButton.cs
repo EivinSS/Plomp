@@ -8,6 +8,9 @@ public class MainMenuButton : MonoBehaviour
 
     public void MainMenuButtonPressed() 
     {
+        int totalDeaths = PlayerPrefs.GetInt("Deaths", 0);
+        int newDeaths = totalDeaths + 1;
+        PlayerPrefs.SetInt("Deaths", newDeaths);
         GoToMainMenu.Raise();
     }
 }

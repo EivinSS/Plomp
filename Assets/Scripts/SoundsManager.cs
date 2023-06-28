@@ -46,12 +46,14 @@ public class SoundsManager : MonoBehaviour
         if (soundEnum == GameManager.SoundEnum.BlockMove)
         {
             audioSourceBlockMove.clip = blockMove;
+            audioSourceBlockMove.volume = 0.8f;
             audioSourceBlockMove.Play();
 
         }
         if(soundEnum == GameManager.SoundEnum.IceCrack)
         {
             audioSourceIceCrack.clip = iceCrack;
+            audioSourceCoin.volume = 0.8f;
             audioSourceIceCrack.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Winning)
@@ -62,6 +64,7 @@ public class SoundsManager : MonoBehaviour
         if(soundEnum == GameManager.SoundEnum.Coin)
         {
             audioSourceCoin.clip = coin;
+            audioSourceCoin.volume = 0.8f;
             audioSourceCoin.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Death)
@@ -72,6 +75,7 @@ public class SoundsManager : MonoBehaviour
         if(soundEnum == GameManager.SoundEnum.ActivateGoal)
         {
             audioSourceActivateGoal.clip = activateGoal;
+            audioSourceActivateGoal.volume = 0.8f;
             audioSourceActivateGoal.Play();
         } 
     }
