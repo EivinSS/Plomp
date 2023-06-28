@@ -27,11 +27,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MaybeRealLevels/Level5.unity
     guid: 30680eadcc71c674093aff7479bc2c2c
   - enabled: 1
-    path: Assets/Scenes/MaybeRealLevels/Level7.unity
-    guid: 4beaf71c934dfec4b98e038687972f3c
-  - enabled: 1
     path: Assets/Scenes/MaybeRealLevels/Level6.unity
     guid: 7fc84fa84eca80947adfd004106285c5
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level7.unity
+    guid: 4beaf71c934dfec4b98e038687972f3c
   - enabled: 1
     path: Assets/Scenes/MaybeRealLevels/Level8.unity
     guid: 39d8efe1e77aaa54b8fe0959e5d56392
@@ -44,16 +44,49 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MaybeRealLevels/Level11.unity
     guid: 07d92e402dec47a43a2508784d685bfa
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level12.unity
+    guid: 1516f4f486454a143a9086d2f402a0a1
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level13.unity
+    guid: 88be53c1153ade7458cbee968be42b0c
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level14.unity
+    guid: 728ff77732312104d91182cc8e3d52fd
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level15.unity
+    guid: 696d31835f301084f98d2188601a3df6
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level16.unity
+    guid: cc635c7f9087e9c489cb3d696b9c5760
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level17.unity
+    guid: f2be2f894aeea264c844cc40caa6ee89
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level18.unity
+    guid: 972d57f265ea5eb4ca9ed31ae872b5f7
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level19.unity
+    guid: 47dd19dcda2f06841a1b2f9f1aa0dab5
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level20.unity
+    guid: 056a80c026f4e794eb48922a491cd565
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level21.unity
+    guid: 8bb5477cce215694d97b176b5c44ffbf
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level22.unity
+    guid: b2be60dc058a05b42a89e690f7698576
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level23.unity
+    guid: 843b05f2ba9f0e747a71140060bccf29
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level24.unity
+    guid: 7925805690d20d44db52fe4b130604a4
+  - enabled: 1
+    path: Assets/Scenes/MaybeRealLevels/Level25.unity
+    guid: d13bdbb3b8221084ab1ab4a826697710
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/MaybeRealLevels/Level12.unity
-    guid: 1516f4f486454a143a9086d2f402a0a1
-  - enabled: 0
-    path: Assets/Scenes/MaybeRealLevels/Level30.unity
-    guid: 660bd5669424d924f80fe13856c03f24
-  - enabled: 0
-    path: Assets/Scenes/MaybeRealLevels/Level100.unity
-    guid: 5879272a301d8864c807aa28690933d7
   m_configObjects: {}
