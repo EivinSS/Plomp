@@ -318,12 +318,12 @@ PrefabInstance:
     - target: {fileID: 2958157223337336500, guid: 7af6dd309ca7e724985b8b9853145caa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.21736161
+      value: -0.21736164
       objectReference: {fileID: 0}
     - target: {fileID: 2958157223337336500, guid: 7af6dd309ca7e724985b8b9853145caa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.12520096
+      value: 0.12520099
       objectReference: {fileID: 0}
     - target: {fileID: 2958157223337336500, guid: 7af6dd309ca7e724985b8b9853145caa,
         type: 3}
@@ -1327,6 +1327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarsParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102821309784394821, guid: 71f6a41bc088d164ba776572cfd9a742,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8102821309784394822, guid: 71f6a41bc088d164ba776572cfd9a742,
         type: 3}
@@ -3294,12 +3299,12 @@ PrefabInstance:
     - target: {fileID: 6877793736042364432, guid: 41165a8c239534a40942d8adc6fe4445,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.21736161
+      value: -0.21736164
       objectReference: {fileID: 0}
     - target: {fileID: 6877793736042364432, guid: 41165a8c239534a40942d8adc6fe4445,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.12520096
+      value: 0.12520099
       objectReference: {fileID: 0}
     - target: {fileID: 6877793736042364432, guid: 41165a8c239534a40942d8adc6fe4445,
         type: 3}
@@ -4061,7 +4066,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d2ab25afb29511a45bb3cafb0fdf1a2d,
+      objectReference: {fileID: 21300000, guid: 60fa8651dcb78ed4eb77ba4a60ed70b7,
         type: 3}
     - target: {fileID: 5237434782059642022, guid: c415a30a4df649d4aaa55d73d25427e8,
         type: 3}
@@ -5334,6 +5339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264284756924367471, guid: 1e3fb407fd06678489e39572ed49d7d1,
+        type: 3}
+      propertyPath: m_text
+      value: Swipe to move
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e3fb407fd06678489e39572ed49d7d1, type: 3}

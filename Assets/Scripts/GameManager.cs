@@ -185,11 +185,17 @@ public class GameManager : MonoBehaviour
         LevelClearedGoToNext();
     }
 
-    void LevelClearedGoToNext()
+    void LoadCongratulations()
+    {
+        SceneManager.LoadScene("Congratulations");
+    }
+
+    public void LevelClearedGoToNext()
     {
         if (LastScene())
         {
             Debug.Log("You finished");
+            LoadCongratulations();
             return;
         }
 

@@ -225,7 +225,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8756797780727907368}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+        m_MethodName: LevelClearedGoToNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
