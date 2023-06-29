@@ -22,18 +22,12 @@ public class MusicAndSoundToggle : MonoBehaviour
             if (PlayerPrefs.GetInt(NameConfig.music) == 1)
             {
                 Color myColor = musicImage.color;
-                myColor.r = 0f;
-                myColor.g = 255f;
-                myColor.b = 0f;
                 myColor.a = 1f;
                 musicImage.color = myColor;
             }
             else if (PlayerPrefs.GetInt(NameConfig.music) == 0)
             {
                 Color myColor = musicImage.color;
-                myColor.r = 0f;
-                myColor.g = 0f;
-                myColor.b = 0f;
                 myColor.a = 0.5f;
                 musicImage.color = myColor;
             }
@@ -44,18 +38,12 @@ public class MusicAndSoundToggle : MonoBehaviour
             if (PlayerPrefs.GetInt(NameConfig.sound) == 1)
             {
                 Color myColor = soundImage.color;
-                myColor.r = 0f;
-                myColor.g = 255;
-                myColor.b = 0f;
                 myColor.a = 1f;
                 soundImage.color = myColor;
             }
             else if (PlayerPrefs.GetInt(NameConfig.sound) == 0)
             {
                 Color myColor = soundImage.color;
-                myColor.r = 0f;
-                myColor.g = 0f;
-                myColor.b = 0f;
                 myColor.a = 0.5f;
                 soundImage.color = myColor;
             }
