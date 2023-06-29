@@ -6204,46 +6204,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6067173194546915146, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067173195030625160, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067173195853337987, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067173195927522300, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6208269548502300363, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -512.2001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6208269548502300363, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 20.189941
-      objectReference: {fileID: 0}
-    - target: {fileID: 7186830664504824201, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -37.399902
-      objectReference: {fileID: 0}
-    - target: {fileID: 7186830664504824201, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 20.189941
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe21b5f81fa26a847a1ba9fee20aa9b4, type: 3}
 --- !u!1001 &1768244315
@@ -7037,7 +6997,7 @@ Transform:
   - {fileID: 61799875}
   - {fileID: 1269218257}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &2078768010
 LightingSettings:

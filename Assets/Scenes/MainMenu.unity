@@ -3040,6 +3040,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 681744101297757822, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 85c4fe57ac9eb8244ad0ac4e8bbe2eb6,
+        type: 3}
     - target: {fileID: 1215675405314898716, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
         type: 3}
       propertyPath: m_Enabled
@@ -3054,6 +3060,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405219967283821108, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db9066d96d13e434ea16681c753734fc,
+        type: 3}
+    - target: {fileID: 3405219967283821108, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405219967283821108, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405219967283821108, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405219967283821108, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3413254109938070433, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
         type: 3}
@@ -3198,7 +3230,7 @@ PrefabInstance:
     - target: {fileID: 6208269548502300363, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -297.91248
+      value: -213.8778
       objectReference: {fileID: 0}
     - target: {fileID: 6208269548502300363, guid: fe21b5f81fa26a847a1ba9fee20aa9b4,
         type: 3}
