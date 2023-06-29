@@ -328,10 +328,10 @@ public class MovingObject : MonoBehaviour
         Color initialColor = m.color;
         Color targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
 
-        while (elapsedTime < 2f)
+        while (elapsedTime < 1.5f)
         {
             elapsedTime += 0.01f;
-            m.color = Color.Lerp(initialColor, targetColor, elapsedTime / 2f);
+            m.color = Color.Lerp(initialColor, targetColor, elapsedTime / 1.5f);
             yield return new WaitForSeconds(0.005f);
         }
         yield return null;
