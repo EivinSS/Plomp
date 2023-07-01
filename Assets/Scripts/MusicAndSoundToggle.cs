@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,11 @@ public class MusicAndSoundToggle : MonoBehaviour
     {
         if(isMusic)
         {
+            if (!PlayerPrefs.HasKey(NameConfig.music))
+            {
+                PlayerPrefs.SetInt(NameConfig.music, 1);
+            }
+
             if (PlayerPrefs.GetInt(NameConfig.music) == 1)
             {
                 Color myColor = musicImage.color;
@@ -35,6 +41,11 @@ public class MusicAndSoundToggle : MonoBehaviour
         
         if(isSound)
         {
+            if (!PlayerPrefs.HasKey(NameConfig.sound))
+            {
+                PlayerPrefs.SetInt(NameConfig.sound, 1);
+            }
+
             if (PlayerPrefs.GetInt(NameConfig.sound) == 1)
             {
                 Color myColor = soundImage.color;

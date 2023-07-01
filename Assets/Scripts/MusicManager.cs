@@ -27,6 +27,11 @@ public class MusicManager : MonoBehaviour
         SceneManager.activeSceneChanged += SceneChange;
         DontDestroyOnLoad(this.gameObject);
 
+        if(!PlayerPrefs.HasKey(NameConfig.music))
+        {
+            PlayerPrefs.SetInt(NameConfig.music, 1);
+        }
+
         if (PlayerPrefs.GetInt(NameConfig.music) == 0)
         {
             return;

@@ -24,6 +24,12 @@ public class SoundsManager : MonoBehaviour
 
     public void PlayPlayerMoveSound(GameManager.SoundEnum soundEnum)
     {
+
+        if (!PlayerPrefs.HasKey(NameConfig.sound))
+        {
+            PlayerPrefs.SetInt(NameConfig.sound, 1);
+        }
+
         if (PlayerPrefs.GetInt(NameConfig.sound) == 0)
         {
             return;
