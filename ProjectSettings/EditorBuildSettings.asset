@@ -69,13 +69,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MaybeRealLevels/Level19.unity
     guid: 47dd19dcda2f06841a1b2f9f1aa0dab5
   - enabled: 1
-    path: Assets/Scenes/MaybeRealLevels/Level20.unity
+    path: Assets/Scenes/MaybeRealLevels/Level22.unity
     guid: 056a80c026f4e794eb48922a491cd565
   - enabled: 1
     path: Assets/Scenes/MaybeRealLevels/Level21.unity
     guid: 8bb5477cce215694d97b176b5c44ffbf
   - enabled: 1
-    path: Assets/Scenes/MaybeRealLevels/Level22.unity
+    path: Assets/Scenes/MaybeRealLevels/Level20.unity
     guid: b2be60dc058a05b42a89e690f7698576
   - enabled: 1
     path: Assets/Scenes/MaybeRealLevels/Level23.unity

@@ -59,7 +59,7 @@ public class SoundsManager : MonoBehaviour
         if(soundEnum == GameManager.SoundEnum.IceCrack)
         {
             audioSourceIceCrack.clip = iceCrack;
-            audioSourceCoin.volume = 0.8f;
+            audioSourceIceCrack.volume = 0.5f;
             audioSourceIceCrack.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Winning)
@@ -70,7 +70,7 @@ public class SoundsManager : MonoBehaviour
         if(soundEnum == GameManager.SoundEnum.Coin)
         {
             audioSourceCoin.clip = coin;
-            audioSourceCoin.volume = 0.8f;
+            audioSourceCoin.volume = 0.6f;
             audioSourceCoin.Play();
         }
         if(soundEnum == GameManager.SoundEnum.Death)

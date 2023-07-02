@@ -58,10 +58,10 @@ MonoBehaviour:
   audioSourceCoin: {fileID: 3030328767958303363}
   audioSourceDeath: {fileID: 6654010571612005325}
   audioSourceActivateGoal: {fileID: 884933599844740692}
-  blockMove: {fileID: 8300000, guid: 09fec231489cdad43a99c60aaaa6f0de, type: 3}
+  blockMove: {fileID: 8300000, guid: cdfabd0e0f6c0ec4aa7bd5899d6ff656, type: 3}
   iceCrack: {fileID: 8300000, guid: c41d3d70d1a8f2c4d8b0cc60f71a1f2a, type: 3}
   winning: {fileID: 8300000, guid: 7678d136c00dc7e43845a03b076bc9f5, type: 3}
-  coin: {fileID: 8300000, guid: 2ac94919fc17a744daae2ab30ef67e53, type: 3}
+  coin: {fileID: 8300000, guid: 4efb4e7e9103b3848bf54bf08055fe98, type: 3}
   death: {fileID: 8300000, guid: 2f6fd5d44803b844bab0812748c285e3, type: 3}
   activateGoal: {fileID: 8300000, guid: 6a46a62b512cc2543aeb7d3ca41e531b, type: 3}
 --- !u!82 &4121176547946415159
