@@ -165,10 +165,6 @@ public class GameManager : MonoBehaviour
         int totalDeaths = PlayerPrefs.GetInt("Deaths", 0);
         int newDeaths = totalDeaths + 1;
         PlayerPrefs.SetInt("Deaths", newDeaths);
-        if (newDeaths % 30 == 0)
-        {
-            PlayAd.Raise();
-        }
     }
 
         public void LevelCleared()
